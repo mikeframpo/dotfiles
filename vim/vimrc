@@ -1,0 +1,81 @@
+
+" ===== OS/SOFTWARE/PLUGINS =====
+"
+set clipboard+=unnamedplus      "enable nvim to use clipboard
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+
+call vundle#begin()
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'vim-airline/vim-airline'
+Plugin 'lifepillar/vim-solarized8'
+Plugin 'junegunn/fzf.vim'
+call vundle#end()
+
+" ===== TEXT =====
+"
+set expandtab                   "insert spaces when tab key pressed
+set smarttab                    "also remove a whole tab (worth of spaces) when BS pressed once
+set tabstop=4                   "number of spaces to display for a tab char
+set shiftwidth=4                "number of spaces to insert on a tab/auto indent
+
+" ===== BUFFERS =====
+"
+set hidden                      "don't unload buffer when switching, otherwise it pesters to save constantly
+set nostartofline               "don't jump to the start of line when switching buffers
+
+" ===== DISPLAY =====
+"
+syntax on
+set background=dark
+set termguicolors               "otherwise can get a weird background color
+colorscheme solarized8
+set number                      "line numbering
+set hlsearch                    "search highlighting on
+set nolist                      "don't display whitespace by default, listchars displays pretty much everything
+set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
+"set spell                       "turn on spell checking - why not?
+set splitbelow splitright       "new splits open below, right
+
+let g:airline#extensions#tabline#enabled = 1
+
+" ===== SEARCH =====
+"
+set gdefault                    "by default, replace all instances of a substitution
+set ignorecase                  "when searching
+
+" ===== FILES =====
+"
+set wildmode=longest,list,full  "make file opening similar to the shell
+set wildmenu
+
+" ===== MOVEMENT and MAPPINGS =====
+"
+set scroll=5                    "the number of lines to scroll with ctrl-U/ctrl-D
+set scrolloff=6                 "sets the number of lines that must be on-screen
+                                "fuzzy finder
+nmap <C-f> :FZF<CR>
+                                "shortcut for saving files
+nnoremap <leader>w :w<cr>
+                                "close the current buffer without losing window split
+map <leader>bd :bp\|bd #<CR>
+nmap <C-x> :bp\|bd #<CR>
+nnoremap <leader>ld :ls<CR>:bd<space>
+                                "shift + movement keys, scroll buffer up and
+                                "down, and cycle buffers
+map <S-j> <C-e>
+map <S-k> <C-y>
+map <S-h> :bprevious<CR>
+map <S-l> :bnext<CR>
+
+noremap <C-j> <C-w>j
+noremap <C-k> <C-w>k
+noremap <C-h> <C-w>h
+noremap <C-l> <C-w>l
+                                " Make adjusing split sizes a bit more friendly
+noremap <C-Left> :vertical resize -3<CR>
+noremap <C-Right> :vertical resize +3<CR>
+noremap <C-Up> :resize +3<CR>
+noremap <C-Down> :resize -3<CR>
+
