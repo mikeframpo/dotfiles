@@ -7,6 +7,7 @@ set clipboard+=unnamedplus      "enable nvim to use clipboard
 set rtp+=~/.vim/bundle/Vundle.vim
 
 call vundle#begin()
+
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'lifepillar/vim-solarized8'
@@ -15,14 +16,14 @@ call vundle#end()
 
 " ===== TEXT =====
 "
-set expandtab                   "insert spaces when tab key pressed
+set noexpandtab                 "use tabs
 set smarttab                    "also remove a whole tab (worth of spaces) when BS pressed once
-set tabstop=4                   "number of spaces to display for a tab char
-set shiftwidth=4                "number of spaces to insert on a tab/auto indent
+set tabstop=8                   "number of spaces to display for a tab char
+set shiftwidth=8                "number of spaces to insert on auto indent
 
 " ===== BUFFERS =====
 "
-set hidden                      "don't unload buffer when switching, otherwise it pesters to save constantly
+set autowriteall		"auto save buffers
 set nostartofline               "don't jump to the start of line when switching buffers
 
 " ===== DISPLAY =====
@@ -43,7 +44,7 @@ let g:airline#extensions#tabline#enabled = 1
 " ===== SEARCH =====
 "
 set gdefault                    "by default, replace all instances of a substitution
-set ignorecase                  "when searching
+set noignorecase                "case sensitive by default
 
 " ===== FILES =====
 "
@@ -56,6 +57,7 @@ set scroll=5                    "the number of lines to scroll with ctrl-U/ctrl-
 set scrolloff=6                 "sets the number of lines that must be on-screen
                                 "fuzzy finder
 nmap <C-f> :FZF<CR>
+nmap <C-b> :Buffers<CR>
                                 "shortcut for saving files
 nnoremap <leader>w :w<cr>
                                 "close the current buffer without losing window split
