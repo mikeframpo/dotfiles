@@ -51,6 +51,10 @@ set noignorecase                "case sensitive by default
 set wildmode=longest,list,full  "make file opening similar to the shell
 set wildmenu
 
+" ===== COMPLETION =====
+"
+set completeopt=menu,preview,longest
+
 " ===== MOVEMENT and MAPPINGS =====
 "
 set scroll=5                    "the number of lines to scroll with ctrl-U/ctrl-D
