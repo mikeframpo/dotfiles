@@ -28,6 +28,8 @@ set shiftwidth=8                "number of spaces to insert on auto indent
 "
 set autowriteall		"auto save buffers
 set nostartofline               "don't jump to the start of line when switching buffers
+set undodir=~/.local/share/nvim/undos/
+set undofile			"store undo history to a file so its not ~undone~ on buffer save
 
 " ===== DISPLAY =====
 "
