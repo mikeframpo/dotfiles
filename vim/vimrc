@@ -7,11 +7,11 @@ set clipboard+=unnamedplus      "enable nvim to use clipboard
 set rtp+=~/.vim/bundle/Vundle.vim
 
 call vundle#begin()
-
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'lifepillar/vim-solarized8'
 Plugin 'junegunn/fzf.vim'
+Plugin 'preservim/nerdtree'
 call vundle#end()
 
 " added this for Ubuntu, not sure if fzf installs differently on Arch
@@ -43,6 +43,7 @@ set nolist                      "don't display whitespace by default, listchars 
 set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
 "set spell                       "turn on spell checking - why not?
 set splitbelow splitright       "new splits open below, right
+set cursorline			"highlight the current line
 
 let g:airline#extensions#tabline#enabled = 1
 
