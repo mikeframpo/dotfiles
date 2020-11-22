@@ -14,8 +14,10 @@ Plugin 'junegunn/fzf.vim'
 Plugin 'preservim/nerdtree'
 call vundle#end()
 
-" added this for Ubuntu, not sure if fzf installs differently on Arch
-source /usr/share/doc/fzf/examples/fzf.vim
+if filereadable("/usr/share/doc/fzf/examples/fzf.vim")
+	"Ubuntu loads fzf from here, seems to work without this on Arch
+	source /usr/share/doc/fzf/examples/fzf.vim
+endif
 
 " ===== TEXT =====
 "
