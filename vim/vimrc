@@ -78,8 +78,8 @@ nmap <C-x> :bp\|bd #<CR>
 nnoremap <leader>ld :ls<CR>:bd<space>
                                 "shift + movement keys, scroll buffer up and
                                 "down, and cycle buffers
-map <S-j> <C-e>
-map <S-k> <C-y>
+map <S-j> j<C-e>
+map <S-k> k<C-y>
 map <S-h> :bprevious<CR>
 map <S-l> :bnext<CR>
 
