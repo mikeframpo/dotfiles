@@ -37,9 +37,9 @@ set undofile			"store undo history to a file so its not ~undone~ on buffer save
 "
 syntax on
 set background=dark
-set termguicolors               "otherwise can get a weird background color
-colorscheme solarized8
+colorscheme solarized8_high
 set number                      "line numbering
+set relativenumber		"relative numbering :o
 set hlsearch                    "search highlighting on
 set nolist                      "don't display whitespace by default, listchars displays pretty much everything
 set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
