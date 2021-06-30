@@ -1,11 +1,11 @@
 #!/bin/bash
 
-if [[ -h ~/.vim ]]; then
-	rm ~/.vim
-fi
+[[ -h ~/.vim ]] && rm ~/.vim
 ln -s `pwd`/vim ~/.vim
 
-if [[ -h ~/.tmux.conf ]]; then
-	rm ~/.tmux.conf
-fi
+[[ -d ~/.config/nvim ]] || mkdir -p ~/.config/nvim
+ln -s `pwd`/init.vim ~/.config/nvim/init.vim
+
+[[ -h ~/.tmux.conf ]] && rm ~/.tmux.conf
 ln -s `pwd`/tmux.conf ~/.tmux.conf
+
