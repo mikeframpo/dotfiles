@@ -55,6 +55,7 @@ set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
 "set spell                       "turn on spell checking - why not?
 set splitbelow splitright       "new splits open below, right
 set cursorline			"highlight the current line
+set mouse=a			"enable mouse integration
 
 let g:airline#extensions#tabline#enabled = 1
 
@@ -87,6 +88,8 @@ nmap <C-x> :bp\|bd #<CR>
 nnoremap <leader>ld :ls<CR>:bd<space>
                                 "shift + movement keys, scroll buffer up and
                                 "down, and cycle buffers
+inoremap jj <ESC>
+				"jj to exit insert mode
 map <S-j> j<C-e>
 map <S-k> k<C-y>
 map <S-h> :bprevious<CR>
