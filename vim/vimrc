@@ -48,7 +48,7 @@ syntax on
 set background=dark
 colorscheme solarized8_high
 set number                      "line numbering
-set norelativenumber		"relative numbering off
+set relativenumber		"relative numbering on
 set hlsearch                    "search highlighting on
 set nolist                      "don't display whitespace by default, listchars displays pretty much everything
 set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
@@ -104,4 +104,25 @@ noremap <C-Left> :vertical resize -3<CR>
 noremap <C-Right> :vertical resize +3<CR>
 noremap <C-Up> :resize +3<CR>
 noremap <C-Down> :resize -3<CR>
+
+"FZF Buffer Delete
+
+function! s:list_buffers()
+  redir => list
+  silent ls
+  redir END
+  return split(list, "\n")
+endfunction
+
+function! s:delete_buffers(lines)
+  execute 'bwipeout' join(map(a:lines, {_, line -> split(line)[0]}))
+endfunction
+
+command! BD call fzf#run(fzf#wrap({
+  \ 'source': s:list_buffers(),
+  \ 'sink*': { lines -> s:delete_buffers(lines) },
+  \ 'options': '--multi --reverse --bind ctrl-a:select-all+accept'
+\ }))
+
+noremap <M-d> :BD<CR>
 
